@@ -1,0 +1,17 @@
+create keyspace asset with replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+
+
+create table category(itemID varchar primary key, itemName varchar, displayOrder varchar, assetIDs varchar);
+
+
+copy category(itemID, itemName, displayOrder, assetIDs) from 'u:/Categories-table.csv' with delimiter='^' and header=true;
+
+
+create table asset(assetID varchar primary key, assetName varchar, productionYear varchar, seriesID varchar, episodeID varchar, duration varchar, quality varchar, genre varchar, country varchar, CSA varchar, Provider varchar, seriesSeason varchar, seriesName varchar, seriesDescription varchar, seriesShortDescription varchar, terminal varchar, priceID varchar,subtitleLanguage varchar, audioLanguage varchar, trailerID varchar, imagePath varchar, attachmentName varchar, description varchar, shortDescription varchar);
+
+
+
+copy asset(assetID, assetName, productionYear, seriesID, episodeID, duration, quality, genre, country, CSA, Provider, seriesSeason, seriesName, seriesDescription, seriesShortDescription,terminal, priceID, subtitleLanguage, audioLanguage, trailerID, imagePath, attachmentName, description, shortDescription) from 'c:/Asset-table.csv' with delimiter='^' and header=true;
+
+
+
